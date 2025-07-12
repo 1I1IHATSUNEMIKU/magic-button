@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>botão magico</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: red;
+            color: black;
+            margin: 0;
+        }
+        #button-magic{
+            padding: 20px;
+            font-size: 20px;
+            background-color: powderblue;
+            color: lightskyblue;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <button id="button-magic">clique em mim!</button>
+    <script>
+        const buttonMagic=document.getElementById("button-magic")
+        let point=0
+        function corAleatoria(){
+            const letras="0123456789ABCDEF"
+            let cor="#"
+            for(let i=0; i<6; i++){
+                cor+=letras[Math.floor(Math.random()*16)]
+            }
+            return cor
+        }
+        buttonMagic.addEventListener("click",function(){
+            point++;
+            buttonMagic.style.backgroundColor=corAleatoria();
+            buttonMagic.textContent=`pontos: ${point}`
+        })
+    </script>
+</body>
+</html>
